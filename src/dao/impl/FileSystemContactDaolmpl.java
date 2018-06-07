@@ -4,7 +4,7 @@ public class FileSystemContactDaolmpl {
 }
 
         import programm.dao.ContactDao;
-        import com.guzichenko.programm.model.Contact;
+        import programm.model.Contact;
         import java.io.*;
         import java.util.ArrayList;
         import java.util.List;
