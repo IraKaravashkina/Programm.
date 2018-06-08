@@ -1,47 +1,43 @@
 package dao.impl;
 
-public class DBContactDao {
-}
-        import java.sql.Connection;
-        import java.sql.DriverManager;
-        import java.sql.PreparedStatement;
-        import java.sql.ResultSet;
-        import java.sql.SQLException;
-        import java.sql.Statement;
-        import java.util.ArrayList;
-        import java.util.List;
-        import programm.dao.ContactDao;
-        import programm.model.Contact;
 
+import dao.ContactDao;
+import model.Contact;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBContactDao implements ContactDao {
 
     private static final String DB_URL = "jdbc:h2:tcp://localhost/~/Program";
     private static final String USER = "Test";
     private static final String PASSWORD = "";
+
     public DBContactDao() {
 
         try {
             Class.forName("org.h2.Driver");
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             System.out.println("Can't connect to DB");
 
         }
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              Statement st = connection.createStatement()) {
-            st.execute("CREATE TABLE IF NOT  EXISTS CLIENT(ID INT AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(255), AGE INT);");
-        }
-
-        catch (SQLException e) {
+            st.execute(
+                    "CREATE TABLE IF NOT  EXISTS CLIENT(ID INT AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(255), AGE INT);");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
 
-
     @Override
-
     public void saveContact(Contact contact) {
         try (Connection connection = DriverManager
                 .getConnection(DB_URL, USER, PASSWORD);
@@ -50,9 +46,7 @@ public class DBContactDao implements ContactDao {
             st.setString(1, contact.getName());
             st.setInt(2, contact.getAge());
             st.execute();
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -74,8 +68,7 @@ public class DBContactDao implements ContactDao {
                 }
             }
             return clients;
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
