@@ -1,12 +1,11 @@
 package services.impl;
 
-public class FSContactServicelmpl {
-}
-        import programm.dao.ContactDao;
-        import programm.model.Contact;
-        import programm.services.ContactService;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
+
+import dao.ContactDao;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.Contact;
+import services.ContactService;
 
 public class FSContactServiceImpl implements ContactService {
 
