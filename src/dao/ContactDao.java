@@ -1,9 +1,8 @@
 package dao;
 
-public class ContactDao {
-}
-        import java.util.List;
-        import programm.model.Contact;
+import model.Contact;
+
+import java.util.List;
 
 public interface ContactDao {
     /**
