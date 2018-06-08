@@ -1,20 +1,18 @@
 package view.impl;
 
-public class CmdLineServicelmpl {
-}
-        import programm.services.ContactService;
-        import programm.utils.ValidationUtil;
-        import programm.view.CmdLineService;
-        import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
+
+import services.ContactService;
+import utils.ValidationUtil;
+import view.CmdLineService;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class CmdLineServiceImpl implements CmdLineService {
 
     /**
-
      * Сервис реализующий логику предоставления и считывания информации в/из консоль.
-
      */
 
     private final ContactService contactService;
