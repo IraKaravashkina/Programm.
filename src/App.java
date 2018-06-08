@@ -1,11 +1,11 @@
 public class App {
 }
-        import programm.dao.ContactDao;
-        import programm.dao.impl.DBContactDao;
-        import programm.services.ContactService;
-        import programm.services.impl.FSContactServiceImpl;
-        import programm.view.CmdLineService;
-        import programm.view.imlp.CmdLineServiceImpl;
+        import dao.ContactDao;
+        import dao.impl.DBContactDao;
+        import services.ContactService;
+        import services.impl.FSContactServiceImpl;
+        import view.CmdLineService;
+        import view.impl.CmdLineServiceImpl;
         import java.io.IOException;
 
 public class App {
