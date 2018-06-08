@@ -1,23 +1,21 @@
 package view.controllers;
 
-public class MainController {
-}
 
-        import programm.dao.impl.DBContactDao;
-        import programm.model.Contact;
-        import programm.services.ContactService;
-        import programm.services.impl.ContactServiceImpl;
-        import programm.services.impl.FSContactServiceImpl;
-        import javafx.fxml.FXML;
-        import javafx.scene.control.Button;
-        import javafx.scene.control.TableColumn;
-        import javafx.scene.control.TableView;
-        import javafx.scene.control.TextField;
-        import javafx.scene.control.cell.PropertyValueFactory;
-
+import dao.impl.DBContactDao;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.Contact;
+import services.ContactService;
+import services.impl.FSContactServiceImpl;
 
 public class MainController {
+
     private ContactService contactService;
+
     public MainController() {
         this.contactService = new FSContactServiceImpl(new DBContactDao());
     }
@@ -39,7 +37,8 @@ public class MainController {
 
     @FXML
     private TableColumn<Contact, Integer> ageColumn;
-    public void createContact(){
+
+    public void createContact() {
         String name = inputName.getText();
         String age = inputAge.getText();
         contactService.createContact(name, new Integer(age));
