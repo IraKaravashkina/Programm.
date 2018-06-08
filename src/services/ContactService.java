@@ -1,9 +1,8 @@
 package services;
 
-public class ContactService {
-}
-        import programm.model.Contact;
-        import javafx.collections.ObservableList;
+
+import javafx.collections.ObservableList;
+import model.Contact;
 
 public interface ContactService {
 
