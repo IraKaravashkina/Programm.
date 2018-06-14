@@ -13,6 +13,8 @@ public interface ContactDao {
 
      */
     void saveContact(Contact contact);
-    void removeContact();
+    void deleteContact();
+    void editContact(Contact contact);
+    List<Contact> findContact(String name);
     List<Contact> showAll();
 }
