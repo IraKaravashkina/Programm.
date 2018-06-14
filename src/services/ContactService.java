@@ -14,7 +14,7 @@ public interface ContactService {
 
     void createContact(String name, int phone);
     void deleteContact(String name);
-
+    List<Contact> findContact(String name);
     ObservableList<Contact> showContacts();
     void editContact(String oldName, String newName, int newAge);
 }
