@@ -59,7 +59,7 @@ public class DBContactDao implements ContactDao {
     @Override
     public void editContact(Contact contact){
         try (Connection connection = DriverManager
-                .getConnection(DB_URL, USER_NAME, PASSWORD);
+                .getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement st =
                      connection.prepareStatement(
                              "UPDATE " + TABLE_NAME +" SET NAME = ?, PHONENUMBER = ?, AGE = ?, ADDRESS = ? WHERE ID = ?;")){
