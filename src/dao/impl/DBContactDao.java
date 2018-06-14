@@ -18,7 +18,9 @@ public class DBContactDao implements ContactDao {
     private static final String DB_URL = "jdbc:h2:tcp://localhost/~/Program";
     private static final String USER = "Test";
     private static final String PASSWORD = "";
-
+    private static final String TABLE_NAME = "CLIENT";
+    private ArrayList<Contact> contactList = new ArrayList<Contact>();
+    
     public DBContactDao() {
 
         try {
@@ -61,10 +63,10 @@ public class DBContactDao implements ContactDao {
         try (Connection connection = DriverManager
                 .getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement st = connection.prepareStatement(
-                             "UPDATE " + TABLE +" NAME = ?, PHONENUMBER = ?, AGE = ?, ADDRESS = ?;")){
+                             "UPDATE " + TABLE_NAME +" NAME = ?, PHONENUMBER = ?, AGE = ?, ADDRESS = ?;")){
             st.setString(1, contact.getName());
             st.setString(2, contact.getPhoneNumber());
-            st.setInt(2, contact.getAge());
+            st.setInt(3, contact.getAge());
             st.setString(4, contact.getAddress());
             st.execute();
         } catch (SQLException e) {
