@@ -83,7 +83,7 @@ public class DBContactDao implements ContactDao {
         String query = "SELECT * FROM " + 
                 " WHERE UPPER(SUBSTR(NAME,1," + lengthSearch + ")) =  '" + searchName.toUpperCase() + "';";
 
-        selectContact(query);
+        selectContact();
         return contactList;
     }
 
