@@ -60,9 +60,12 @@ public class DBContactDao implements ContactDao {
     public void editContact(Contact contact){
         try (Connection connection = DriverManager
                 .getConnection(DB_URL, USER, PASSWORD);
-             PreparedStatement st = connection.prepareStatement("INSERT INTO CLIENT(NAME, AGE) VALUES(?, ?);")) {
+             PreparedStatement st = connection.prepareStatement(
+                             "UPDATE " + TABLE +" NAME = ?, PHONENUMBER = ?, AGE = ?, ADDRESS = ?;")){
             st.setString(1, contact.getName());
+            st.setString(2, contact.getPhoneNumber());
             st.setInt(2, contact.getAge());
+            st.setString(4, contact.getAddress());
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();
