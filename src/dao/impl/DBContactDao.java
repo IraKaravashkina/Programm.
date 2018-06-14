@@ -60,9 +60,7 @@ public class DBContactDao implements ContactDao {
     public void editContact(Contact contact){
         try (Connection connection = DriverManager
                 .getConnection(DB_URL, USER, PASSWORD);
-             PreparedStatement st =
-                     connection.prepareStatement(
-                             "UPDATE " + TABLE_NAME +" SET NAME = ?, PHONENUMBER = ?, AGE = ?, ADDRESS = ? WHERE ID = ?;")){
+             PreparedStatement st = connection.prepareStatement("INSERT INTO CLIENT(NAME, AGE) VALUES(?, ?);")) {
             st.setString(1, contact.getName());
             st.setInt(2, contact.getAge());
             st.execute();
@@ -77,7 +75,7 @@ public class DBContactDao implements ContactDao {
         if (!contactList.isEmpty()) contactList.clear();
 
         int lengthSearch = searchName.length();
-        String query = "SELECT * FROM " + TABLE_NAME +
+        String query = "SELECT * FROM " + 
                 " WHERE UPPER(SUBSTR(NAME,1," + lengthSearch + ")) =  '" + searchName.toUpperCase() + "';";
 
         selectContact(query);
