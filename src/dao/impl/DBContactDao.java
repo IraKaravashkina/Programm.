@@ -18,8 +18,7 @@ public class DBContactDao implements ContactDao {
     private static final String DB_URL = "jdbc:h2:tcp://localhost/~/Program";
     private static final String USER = "Test";
     private static final String PASSWORD = "";
-    private static final String TABLE_NAME = "CLIENT";
-    private ArrayList<Contact> contactList = new ArrayList<Contact>();
+   
     
     public DBContactDao() {
 
