@@ -43,7 +43,6 @@ public class DBContactDao implements ContactDao {
         try (Connection connection = DriverManager
                 .getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement st = connection.prepareStatement("INSERT INTO CLIENT(NAME, AGE) VALUES(?, ?);")) {
-
             st.setString(1, contact.getName());
             st.setInt(2, contact.getAge());
             st.execute();
