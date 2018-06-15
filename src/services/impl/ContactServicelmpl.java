@@ -19,7 +19,7 @@ import services.ContactService;
         }
 
         @Override
-        public void createContact(String name, int phone) {
+        public void saveContact(String name, int phone) {
             contactList.add(new Contact(name, phone));
         }
 
