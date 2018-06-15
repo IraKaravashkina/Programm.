@@ -23,7 +23,7 @@ public class FSContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void createContact(String name, int phone) {
+    public void saveContact(String name, int phone) {
         contactDao.saveContact(new Contact(name, phone));
         showContacts();
     }
