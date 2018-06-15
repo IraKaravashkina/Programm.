@@ -61,7 +61,7 @@ public class DBContactDao implements ContactDao {
         try (Connection connection = DriverManager
                 .getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement st = connection.prepareStatement(
-                             "UPDATE " + TABLE_NAME +" NAME = ?, PHONENUMBER = ?, AGE = ?,")){
+                             "UPDATE " + TABLE_NAME +" NAME = ?, phoneNumber = ?, AGE = ?,")){
             st.setString(1, contact.getName());
             st.setInt(2, contact.getAge());
            st.execute();
