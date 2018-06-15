@@ -32,7 +32,7 @@ public class CmdLineServiceImpl implements CmdLineService {
             String line = br.readLine();
             switch (line) {
                 case "1": {
-                    createContact();
+                    saveContact();
                     break;
                 }
                 case "2": {
