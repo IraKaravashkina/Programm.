@@ -65,27 +65,13 @@ public class DBContactDao implements ContactDao {
              PreparedStatement st = connection.prepareStatement(
                              "UPDATE " + TABLE_NAME +" NAME = ?, PHONENUMBER = ?, AGE = ?, ADDRESS = ?;")){
             st.setString(1, contact.getName());
-            st.setString(2, contact.getPhoneNumber());
-            st.setInt(3, contact.getAge());
-            st.setString(4, contact.getAddress());
+            st.setInt(2, contact.getAge());
+            st.setString(3, contact.getAddress());
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         }
-
-
-    @Override
-    public ArrayList<Contact> findContact(String searchName){
-        if (!contactList.isEmpty()) contactList.clear();
-
-        int lengthSearch = searchName.length();
-        String query = "SELECT * FROM " + 
-                " WHERE UPPER(SUBSTR(NAME,1," + lengthSearch + ")) =  '" + searchName.toUpperCase() + "';";
-
-        selectContact();
-        return contactList;
-    }
 
 
     @Override
