@@ -12,7 +12,7 @@ public interface ContactService {
 
      */
 
-    void createContact(String name, int phone);
+    void saveContact(String name, int phone);
     void deleteContact(String name);
     ObservableList<Contact> showContacts();
     void editContact(String oldName, String newName, int newAge);
