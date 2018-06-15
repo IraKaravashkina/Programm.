@@ -58,19 +58,19 @@ public class CmdLineServiceImpl implements CmdLineService {
     }
 
     private static void showMenu() {
-        System.out.println("1. Create Contact");
+        System.out.println("1. Save Contact");
         System.out.println("2. Delete Contact");
         System.out.println("3. Show Contacts");
         System.out.println("4. Edit Contact");
         System.out.println("0. Exit");
     }
 
-    private void createContact() throws IOException {
+    private void saveContact() throws IOException {
         System.out.println("Enter name");
         String name = br.readLine();
         System.out.println("Enter age");
         int age = readInt();
-        contactService.createContact(name, age);
+        contactService.saveContact(name, age);
     }
 
     private void deleteContact() throws IOException {
