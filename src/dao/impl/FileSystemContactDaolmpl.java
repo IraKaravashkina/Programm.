@@ -57,21 +57,6 @@ public class FileSystemContactDaoImpl implements ContactDao {
     }
 
     @Override
-    public ArrayList<Contact> findContact(String name){
-
-        if (!contactList.isEmpty()) contactList.clear();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE))){
-            String line;
-            while ((line = reader.readLine()) != null) searchContact(name, line);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return contactList;
-    }
-
-    @Override
     public List<Contact> showAll() {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE))) {
             String line;
